@@ -15,3 +15,7 @@ body {
     grid-template-rows: repeat(16, 31px);
     grid-template-columns: repeat(16, 31px);
 }
+
+.addColor {
+    background-color: black;
+}

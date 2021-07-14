@@ -6,4 +6,9 @@ for (let i = 0; i < 256; i++) {
     container.appendChild(div);
 }
 
+const allDivs = document.querySelectorAll('.box');
+console.log(allDivs);
 
+allDivs.forEach((div) => {
+    div.addEventListener('mouseover', () => div.classList.add('addColor'));
+}) 
