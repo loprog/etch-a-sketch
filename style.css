@@ -4,8 +4,14 @@ body {
 }
 
 .box {
-    width: 24px;
-    height: 24px;
-    border: 1px solid #212121;
+    width: 32px;
+    height: 32px;
+    border: 1px solid #888888;
     box-sizing: border-box;
+}
+
+#container {
+    display: grid;
+    grid-template-rows: repeat(16, 31px);
+    grid-template-columns: repeat(16, 31px);
 }
