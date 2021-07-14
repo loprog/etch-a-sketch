@@ -1,0 +1,11 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.box {
+    width: 24px;
+    height: 24px;
+    border: 1px solid #212121;
+    box-sizing: border-box;
+}
