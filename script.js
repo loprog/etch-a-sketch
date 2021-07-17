@@ -11,10 +11,24 @@ for (let i = 0; i < 256; i++) {
 const allDivs = document.querySelectorAll('.box');
 console.log(allDivs);
 
-// Adds hover effect for boxes
+// Add color effect for boxes on click
 allDivs.forEach((div) => {
-    div.addEventListener('mouseover', () => div.classList.add('addColor'));
+    div.addEventListener('click', addColorClass);
 }) 
+
+// Add color effect for boxes on hover
+function addColor() {
+    allDivs.forEach((div) => {
+        div.addEventListener('mouseover', addColorClass);
+    });
+}
+
+// Add Class CSS addColor
+function addColorClass() {
+    this.classList.add('addColor');
+}
+
+container.addEventListener('click', addColor, {capture: true});
 
 // Remove color for boxes on clear button
 const clearBtn = document.querySelector('#clearBtn');
@@ -25,3 +39,6 @@ function clearAll() {
         div.classList.remove('addColor');
     })
 }
+
+// CLEAR BUTTON DOESNT MAKE IT START FROM CLICK
+// CLick again to stop the color
