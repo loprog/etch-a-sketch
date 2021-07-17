@@ -22,6 +22,23 @@ body {
     height: 496px;
 }
 
+#gridSize {
+    display: flex;
+    margin-bottom: 16px;
+}
+
+#gridSize p {
+    font-size: 0.75rem;
+    font-family: 'Helvetica';
+    font-weight: 600;
+    margin-right: 8px;
+}
+
+#gridSize input {
+    height: 40px;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
 
 #clearBtn {
     padding: 10px 20px;
@@ -32,6 +49,7 @@ body {
     font-size: 1rem;
     font-weight: 600;
     background-color: #fff;
+    box-sizing: border-box;
 }
 
 #clearBtn:hover {
