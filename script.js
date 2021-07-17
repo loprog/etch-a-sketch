@@ -7,49 +7,43 @@ for (let i = 0; i < 256; i++) {
     container.appendChild(div);
 }
 
-// Selects individual boxes
 const allDivs = document.querySelectorAll('.box');
-console.log(allDivs);
 
-// Add color effect for boxes on click
+function changeBackground() {
+    this.style.backgroundColor = 'green';
+}
+
+// Change background on click
 allDivs.forEach((div) => {
-    div.addEventListener('click', addColorClass);
+    div.addEventListener('click', changeBackground);
 }) 
 
+// Toggle change background color on mouseover 
 let clickCount = 0;
-// Add color effect for boxes on hover
+container.addEventListener('click', addColor);
 function addColor() {
     allDivs.forEach((div) => {
-        div.addEventListener('mouseover', addColorClass);
+        div.addEventListener('mouseover', changeBackground);
     });
 
     ++clickCount;
 
     if (clickCount % 2 == 0) {
         allDivs.forEach((div) => {
-            div.removeEventListener('mouseover', addColorClass);
+            div.removeEventListener('mouseover', changeBackground);
         });
     }
 }
 
-// Add Class CSS addColor
-function addColorClass() {
-    this.style.backgroundColor = 'green';
-}
-
-container.addEventListener('click', addColor, {capture: true});
-
-// Remove color for boxes on clear button
+// Clear Button
 const clearBtn = document.querySelector('#clearBtn');
 clearBtn.addEventListener('click', clearAll);
 
 function clearAll() {
     allDivs.forEach((div) => {
         div.style.backgroundColor = '';
-        div.removeEventListener('mouseover', addColorClass);
+        div.removeEventListener('mouseover', changeBackground); 
         clickCount = 0;
     })
 }
 
-// CLEAR BUTTON DOESNT MAKE IT START FROM CLICK
-// Random Color
