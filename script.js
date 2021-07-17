@@ -25,7 +25,7 @@ function addColor() {
 
 // Add Class CSS addColor
 function addColorClass() {
-    this.classList.add('addColor');
+    this.style.backgroundColor = 'green';
 }
 
 container.addEventListener('click', addColor, {capture: true});
@@ -36,9 +36,10 @@ clearBtn.addEventListener('click', clearAll);
 
 function clearAll() {
     allDivs.forEach((div) => {
-        div.classList.remove('addColor');
+        div.style.backgroundColor = '';
     })
 }
 
 // CLEAR BUTTON DOESNT MAKE IT START FROM CLICK
 // CLick again to stop the color
+// Random Color
