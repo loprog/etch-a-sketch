@@ -47,3 +47,17 @@ function clearAll() {
     })
 }
 
+const toggleBorderBtn = document.querySelector('#toggleBorder');
+function toggleBorder() {
+    allDivs.forEach((div) => {
+        div.classList.toggle('borderOff')
+    });
+
+    toggleBorderBtn.classList.toggle('activeBtn');
+
+    if (toggleBorderBtn.textContent.includes('On')) {
+        toggleBorderBtn.textContent = 'Borders Off';
+    } else {
+        toggleBorderBtn.textContent = 'Borders On';
+    }
+}
