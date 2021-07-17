@@ -16,11 +16,20 @@ allDivs.forEach((div) => {
     div.addEventListener('click', addColorClass);
 }) 
 
+let clickCount = 0;
 // Add color effect for boxes on hover
 function addColor() {
     allDivs.forEach((div) => {
         div.addEventListener('mouseover', addColorClass);
     });
+
+    ++clickCount;
+
+    if (clickCount % 2 == 0) {
+        allDivs.forEach((div) => {
+            div.removeEventListener('mouseover', addColorClass);
+        });
+    }
 }
 
 // Add Class CSS addColor
@@ -37,9 +46,10 @@ clearBtn.addEventListener('click', clearAll);
 function clearAll() {
     allDivs.forEach((div) => {
         div.style.backgroundColor = '';
+        div.removeEventListener('mouseover', addColorClass);
+        clickCount = 0;
     })
 }
 
 // CLEAR BUTTON DOESNT MAKE IT START FROM CLICK
-// CLick again to stop the color
 // Random Color
