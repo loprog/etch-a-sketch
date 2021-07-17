@@ -8,16 +8,21 @@
     <title>Etch-A-Sketch | The Odin Project</title>
 </head>
 <body>
-    <h1> Etch-A-Sketch </h1>
-    <button id="clearBtn"> Clear </button>
-
-    <div id="gridSize">
-    <p> Grid Size </p>
-    <input type="number" id="gridSize">
+    <div class="row">
+    <h1> <span>Etch-</span><span>A-</span><span>Sketch</span> 
+    </h1>
+    
+    <div class="option">
+        <p class="label"> Grid Size </p>
+        <input type="number" max="100" min="1" placeholder="1 to 100" id="gridSize">
+        <button id="applyGridSize"> Apply </button>
     </div>
 
     <div id="container"></div>
 
+    <button id="clearBtn"> Clear Grid </button>
+
     <script src="script.js"></script>
+    </div>
 </body>
 </html>
