@@ -13,10 +13,11 @@
     </h1>
     
     <div class="option">
-        <p class="label"> Grid Size </p>
-        <input type="number" max="100" min="1" placeholder="1 to 100" id="gridSize">
-        <button id="applyGridSize"> Apply </button>
+        <p class="label"> Number of Rows </p>
+        <input type="number" max="100" min="1" placeholder="1 to 100" id="gridSizeInput">
+        <button onclick="gridSize()" id="applyGridSize"> Apply </button>
         <button onclick="toggleBorder()" id="toggleBorder" class="activeBtn"> Borders On </button>
+        <input type="color">
     </div>
 
     <div id="container"></div>

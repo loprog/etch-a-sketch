@@ -1,10 +1,23 @@
+let gridSizeValue = 16;
 const container = document.querySelector('#container');
 
+const gridSizeInput = document.querySelector('#gridSizeInput');
+function gridSize() {
+    gridSizeValue = gridSizeInput.value;
+    console.log(gridSizeValue);
+}
+
+let gridSizeValueSq = gridSizeValue * gridSizeValue;
+
 // Create the grid
-for (let i = 0; i < 256; i++) {
+for (let i = 0; i < gridSizeValueSq; i++) {
     div = document.createElement('div');
     div.classList.add('box');
+    div.style.width = '32px';
+    div.style.height = '32px';
     container.appendChild(div);
+    container.style.gridTemplateRows = 'repeat(16, 31px)'
+    container.style.gridTemplateColumns = 'repeat(16, 31px)'
 }
 
 const allDivs = document.querySelectorAll('.box');
@@ -61,3 +74,4 @@ function toggleBorder() {
         toggleBorderBtn.textContent = 'Borders On';
     }
 }
+
