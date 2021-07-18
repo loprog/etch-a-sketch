@@ -69,16 +69,19 @@ function clearAll() {
 const toggleBorderBtn = document.querySelector('#toggleBorder');
 function toggleBorder() {
     const allBox = document.querySelectorAll('.box');
-    allBox.forEach((box) => {
-        box.classList.toggle('borderOff')
-    });
 
     toggleBorderBtn.classList.toggle('activeBtn');
 
     if (toggleBorderBtn.textContent.includes('On')) {
         toggleBorderBtn.textContent = 'Borders Off';
+        allBox.forEach((box) => {
+            box.classList.add('borderOff')
+        });
     } else {
         toggleBorderBtn.textContent = 'Borders On';
+        allBox.forEach((box) => {
+            box.classList.remove('borderOff')
+        });
     }
 }
  
@@ -94,5 +97,16 @@ function gridSize() {
     createGrid(100);
     } else {
         createGrid(rowNumber.value);
+    }
+
+    const allBox = document.querySelectorAll('.box');
+    if (toggleBorderBtn.textContent.includes('On')) {
+        allBox.forEach((box) => {
+            box.classList.remove('borderOff')
+        });
+    } else {
+        allBox.forEach((box) => {
+            box.classList.add('borderOff')
+        });
     }
 }
