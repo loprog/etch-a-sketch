@@ -19,8 +19,10 @@ function createGrid(boxNumber) {
         
         // Change Background on Click
         box.addEventListener('click', changeBackground);
+        box.addEventListener('click', () => {
+            ++clickCount;
+        })
     }
-
         container.style.gridTemplateRows = 'repeat('+boxNumber+','+boxMargin+')';
         container.style.gridTemplateColumns = 'repeat('+boxNumber+','+boxMargin+')';
 
@@ -31,9 +33,6 @@ function createGrid(boxNumber) {
 // Create Initial Grid
 createGrid(16);
 
-// Select all boxes
-const allBox = document.querySelectorAll('.box');
-
 // Change Color on Hover/Click function
 function changeBackground() {
     this.style.backgroundColor = 'green';
@@ -41,11 +40,11 @@ function changeBackground() {
 
 // Toggle change background color on mouseover 
 function addColor() {
+    const allBox = document.querySelectorAll('.box');
+
     allBox.forEach((box) => {
         box.addEventListener('mouseover', changeBackground);
     });
-
-    ++clickCount;
 
     if (clickCount % 2 == 0) {
         allBox.forEach((box) => {
@@ -58,6 +57,7 @@ function addColor() {
 const clearBtn = document.querySelector('#clearBtn');
 clearBtn.addEventListener('click', clearAll);
 function clearAll() {
+    const allBox = document.querySelectorAll('.box');
     allBox.forEach((box) => {
         box.style.backgroundColor = '';
         box.removeEventListener('mouseover', changeBackground); 
@@ -68,6 +68,7 @@ function clearAll() {
 // Toggle Border
 const toggleBorderBtn = document.querySelector('#toggleBorder');
 function toggleBorder() {
+    const allBox = document.querySelectorAll('.box');
     allBox.forEach((box) => {
         box.classList.toggle('borderOff')
     });
@@ -86,7 +87,12 @@ const applyRow = document.querySelector('#applyRow')
 applyRow.addEventListener('click', gridSize);
 
 function gridSize() {
-    console.log(rowNumber.value);
     container.textContent = '';
-    createGrid(rowNumber.value);
+    if (rowNumber.value <= 0) {
+        createGrid(1);
+    } else if (rowNumber.value > 100) {
+    createGrid(100);
+    } else {
+        createGrid(rowNumber.value);
+    }
 }
