@@ -1,23 +1,26 @@
-let gridSizeValue = 16;
+// Selects the Container
 const container = document.querySelector('#container');
 
-const gridSizeInput = document.querySelector('#gridSizeInput');
-function gridSize() {
-    gridSizeValue = gridSizeInput.value;
-    console.log(gridSizeValue);
-}
+const gridSize = document.querySelector('#gridSize');
 
+let gridSizeValue = gridSize.value;
+console.log(gridSizeValue)
 let gridSizeValueSq = gridSizeValue * gridSizeValue;
+let boxLength;
+let boxHeight;
+let div;
 
 // Create the grid
 for (let i = 0; i < gridSizeValueSq; i++) {
     div = document.createElement('div');
     div.classList.add('box');
-    div.style.width = '32px';
-    div.style.height = '32px';
+    boxLength = parseFloat(496/gridSizeValue) + 'px';
+    boxHeight = parseFloat((496/gridSizeValue) + 1) + 'px';
+    div.style.width = boxHeight;
+    div.style.height = boxHeight;
     container.appendChild(div);
-    container.style.gridTemplateRows = 'repeat(16, 31px)'
-    container.style.gridTemplateColumns = 'repeat(16, 31px)'
+    container.style.gridTemplateRows = 'repeat('+gridSizeValue+','+boxLength+')';
+    container.style.gridTemplateColumns = 'repeat('+gridSizeValue+','+boxLength+')';
 }
 
 const allDivs = document.querySelectorAll('.box');
@@ -74,4 +77,3 @@ function toggleBorder() {
         toggleBorderBtn.textContent = 'Borders On';
     }
 }
-
