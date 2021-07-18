@@ -34,8 +34,18 @@ function createGrid(boxNumber) {
 createGrid(16);
 
 // Change Color on Hover/Click function
+let i = 0;
+let color = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+
 function changeBackground() {
-    this.style.backgroundColor = 'green';
+    // this.style.backgroundColor = 'green';
+    if (this.style.backgroundColor == '') {
+        this.style.backgroundColor = color[i];
+        ++i;
+        if (i > 6) {
+            i = 0;
+        }
+    } 
 }
 
 // Toggle change background color on mouseover 
